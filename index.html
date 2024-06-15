@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2 class="text-center mb-4">Login</h2>
+            <form onsubmit="return login()">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">Show</button>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var togglePassword = document.getElementById('togglePassword');
+        var password = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            if (password.getAttribute('type') === 'password') {
+                password.setAttribute('type', 'text');
+                togglePassword.textContent = 'Hide';
+            } else {
+                password.setAttribute('type', 'password');
+                togglePassword.textContent = 'Show';
+            }
+        });
+
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Lakukan validasi atau autentikasi sesuai kebutuhan
+            // Contoh sederhana untuk validasi login
+            if (username === 'Naca' && password === 'salahmasuk') {
+                // Login berhasil, arahkan ke halaman beranda atau sesuai kebutuhan
+                window.location.href = 'index.html'; // Ganti dengan halaman yang sesuai setelah login berhasil
+            } else {
+                // Login gagal, beri tahu pengguna atau ambil tindakan yang sesuai
+                alert('Invalid username or password');
+            }
+
+            return false; // Untuk mencegah pengiriman formulir secara default
+        }
+    </script>
+</body>
+</html>
